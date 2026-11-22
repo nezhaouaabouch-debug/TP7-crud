@@ -9,9 +9,12 @@ $sql = "SELECT modules.*, formations.nom AS formation
 $stmt = $pdo->query($sql);
 $modules = $stmt->fetchAll(PDO::FETCH_ASSOC);
 ?>
-
-<h1>Liste des modules</h1>
-<a href="create.php">Ajouter un module</a>
+<!DOCTYPE HTML>
+<HTML>
+    <title>Liste des formations</title>
+<body style="background:#E3F2FD ; padding:50px; width:1000px; margin:auto; border-radius:15px; box-shadow:0 4px 20px">
+<h1 >Liste des modules</h1>
+<a href="create.php">Ajouter un module</a> <br><br>
 
 <table border="1">
 <tr>
@@ -38,3 +41,5 @@ $modules = $stmt->fetchAll(PDO::FETCH_ASSOC);
 </tr>
 <?php endforeach; ?>
 </table>
+</html>
+</body>

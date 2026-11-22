@@ -12,7 +12,7 @@ $etudiants = $stmt->fetchAll(PDO::FETCH_ASSOC);
 <!DOCTYPE HTML>
 <HTML>
     <title>Liste des étudiants</title>
-<body>   
+<body  style="background:#E3F2FD ; padding:50px; width:1000px; margin:auto; border-radius:15px; box-shadow:0 4px 20px">   
 <h1>Liste des étudiants</h1>
 <a href="create.php">Ajouter un étudiant</a><br><br>
 

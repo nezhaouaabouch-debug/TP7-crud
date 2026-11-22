@@ -10,7 +10,6 @@
     <h1>Gestion du centre de formation</h1>
     <p>Bienvenue dans votre espace de gestion</p>
     </header>
-    <P>Tableau de bord</P>
     <div class="cards">
         <div class="card">
         <h2>Gestion des formations</h2>
