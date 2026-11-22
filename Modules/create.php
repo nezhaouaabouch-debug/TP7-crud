@@ -7,16 +7,17 @@ $formations = $pdo->query(
 
 if (isset($_POST['ajouter'])) {
 
-    $nom = $_POST['nom_module'];
+    $titre = $_POST['titre'];
     $description = $_POST['description'];
+    $coefficient = $_POST['coefficient'];
     $id_formation = $_POST['id_formation'];
 
     $sql = "INSERT INTO modules
-            (nom_module, description, id_formation)
-            VALUES (?, ?, ?)";
+            (titre, description,Coefficient, id_formation)
+            VALUES (?, ?, ?, ?)";
 
     $stmt = $pdo->prepare($sql);
-    $stmt->execute([$nom, $description, $id_formation]);
+    $stmt->execute([$titre, $description,$coefficient, $id_formation]);
 
     header('Location: index.php');
     exit;
@@ -27,10 +28,13 @@ if (isset($_POST['ajouter'])) {
 
 <form method="POST"  style ="background:#E3F2FD ; padding:50px; width:500px; margin:auto; border-radius:15px; box-shadow:0 4px 20px rgba(0,0,0,0.1);">
     Nom du module :
-    <input type="text" name="nom_module" required>
+    <input type="text" name="titre" required>
     <br><br>
     Description :
     <input type="text" name="description">
+    <br><br>
+    Coefficient :
+    <input type="number" name="coefficient">
     <br><br>
     Formation :
     <select name="id_formation" required>

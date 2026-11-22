@@ -15,8 +15,9 @@ $formations = $pdo->query(
 
 if (isset($_POST['modifier'])) {
 
-    $nom = $_POST['nom_module'];
+    $titre = $_POST['titre'];
     $description = $_POST['description'];
+    $coefficient = $_POST['coefficient'];
     $id_formation = $_POST['id_formation'];
 
     $sql = "UPDATE modules
@@ -24,7 +25,7 @@ if (isset($_POST['modifier'])) {
             WHERE id_module = ?";
 
     $stmt = $pdo->prepare($sql);
-    $stmt->execute([$nom, $description,$coefficient, $id_formation, $id]);
+    $stmt->execute([$titre, $description,$coefficient, $id_formation, $id]);
 
     header('Location: index.php');
     exit;
@@ -33,17 +34,19 @@ if (isset($_POST['modifier'])) {
 
 <h1>Modifier un module</h1>
 
-<form method="POST">
+<form method="POST"  style ="background:#E3F2FD ; padding:50px; width:500px; margin:auto; border-radius:15px; box-shadow:0 4px 20px rgba(0,0,0,0.1);">
     Nom :
-    <input type="text" name="nom_module"
-           value="<?= htmlspecialchars($module['nom_module']) ?>">
-
+    <input type="text" name="titre"
+           value="<?= htmlspecialchars($module['titre']) ?>">
+     <br><br>
     Description :
     <input type="text" name="description"
            value="<?= htmlspecialchars($module['description']) ?>">
+        <br><br>
     coefficient :
     <input type="number" name="coefficient"
            value="<?= htmlspecialchars($module['coefficient']) ?>">
+    <br><br>
     Formation :
     <select name="id_formation">
         <?php foreach ($formations as $f): ?>
@@ -54,6 +57,6 @@ if (isset($_POST['modifier'])) {
             </option>
         <?php endforeach; ?>
     </select>
-
-    <button type="submit" name="modifier">Modifier</button>
-</form>
+    <br><br>
+    <button type="submit" name="modifier"  style=" padding:10px; background:#1E3B8B; color:white; border:none; border-radius:8px; font-size:15px;" >Modifier</button>
+    </from>
